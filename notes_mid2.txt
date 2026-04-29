@@ -1,0 +1,85 @@
+public void doFilter(ServletRequest request , ServletResponse response,FilterChain chain) throws IOException,ServletException {}
+
+response.addCookie
+
+request.getCookies
+
+cookie.getName()
+
+cookie.getValue()
+
+<load-on-startup>0</load-on-startup>
+
+chain.doFilter(req,res);
+
+Enumeration<String> params = request.getParameterNames()
+
+session.getAttributeNames()
+
+while (params.hasMoreElements){
+	String name = params.nextElement();
+	out.println(name);
+}
+
+hasMoreElements()
+nextElement()
+
+JSP directives tells the web container how to translate the JSP page into corresponding servlet :
+
+JSP has 3 type of directives :
+
+1 ) page -> import,info,extends,isErrorPage,errorPage
+=> <% @ page ____ = "true/something_else" %>
+
+2) <% @ include file = "______" %>
+
+3) taglib -> to tag other libraries
+
+
+JSP action tags :
+
+used to control flow between pages and to use java beans
+jsp : forward :
+	<jsp: forward page="url" >
+	<jsp: param name="name" value="google.com" />
+	</jsp:forward>
+
+jsp : include => includes the resource at request time so its better for dynamic pages
+
+<% @ include file="___">  v/s <jsp: include page= "___">
+
+- include resource at translation time  - resource at request time
+- better for static pages 	          - better for dynamic pages
+- merges the include page	          - calls the include method
+
+
+jsp : setProperty
+jsp : getProperty
+jsp : useBean
+
+<jsp : useBean id="obj" class="com.java.calculator">
+<%
+
+int m = obj.cube(5);
+out.println();
+
+%>
+
+Jsp Scriptlet Tag			Jsp Declaration Tag :
+
+The jsp scriptlet tag can only		The jsp declaration tag can declare
+declare variables not methods		variables as well as methods.
+
+The declaration of scriptlet tag		The declaration of jsp declaration
+is placed inside the			tag is placed outside the
+_jspService() method		_jspService() method.
+
+implicit objects :
+out	JspWriter
+request	HttpServletRequest
+response	HttpServletResponse
+config	ServletConfig
+applicationServletContext
+session	HttpSession
+page	Object
+exception	Throwable
